@@ -10,7 +10,8 @@ import ca.ajweeks.meteormasher.utils.Colour;
 public class MainMenuState extends BasicState {
 	
 	private Button playGame = new Button((540 / 2) - (110 / 2), 300, 110, 45, "Play");
-	private Button quit = new Button((540 / 2) - (110 / 2), 365, 110, 45, "Quit");
+	private Button credits = new Button((540 / 2) - (160 / 2), 365, 160, 45, "Credits");
+	private Button quit = new Button((540 / 2) - (110 / 2), 430, 110, 45, "Quit");
 	private Colour colour = new Colour();
 	
 	@Override
@@ -24,6 +25,11 @@ public class MainMenuState extends BasicState {
 		if (quit.hover && (input.leftMouseDown || input.rightMouseDown)) {
 			System.exit(0);
 		}
+		
+		credits.hover = credits.hovering(input.x, input.y);
+		if (credits.hover && (input.leftMouseDown || input.rightMouseDown)) {
+			
+		}
 	}
 	
 	@Override
@@ -33,6 +39,7 @@ public class MainMenuState extends BasicState {
 		g.setColor(colour.title);
 		
 		playGame.render(g);
+		credits.render(g);
 		quit.render(g);
 	}
 	

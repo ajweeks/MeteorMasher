@@ -124,7 +124,7 @@ public class Meteor {
 		if (type != EXPLODEABLE) return;
 		switch (size) {
 		case LARGE:
-			x += size / 4;
+			x += size / 4; //Center
 			y += size / 4;
 			size = MEDIUM;
 			//Game.sound.play();

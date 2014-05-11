@@ -43,11 +43,12 @@ public class GameState extends BasicState {
 		for (int i = 0; i < meteors.size(); i++) {
 			//System.out.println("xV: " + meteors.get(i).xVelocity + " yV: " + meteors.get(i).yVelocity);
 			meteors.get(i).update(input);
-			meteors.get(i).checkCollisions(meteors, i); //Check if this meteor is colliding with any other meteor
 			
 			if (meteors.get(i).toBeDestroyed) {
 				meteors.remove(i);
 			}
+			
+			meteors.get(i).checkCollisions(meteors, i); //Check if this meteor is colliding with any other meteor
 		}
 	}
 	
