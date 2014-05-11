@@ -16,15 +16,21 @@ public class GameState extends BasicState {
 		randoSmallPlacement(100, 100);
 	}
 	
+	public static void nuke() { //BOOM!
+		for (int i = 0; i < meteors.size(); i++) {
+			meteors.get(i).toBeDestroyed = true;
+		}
+	}
+	
 	public void randoSmallPlacement(double x, double y) {
 		double xV = Math.random() * 10 - 5;
 		if (xV > -1 && xV < 1) xV += Math.random() > 0.5 ? 2 : -2;
 		double yV = Math.random() * 10 - 5;
 		if (yV > -1 && yV < 1) yV += Math.random() > 0.5 ? 2 : -2;
-		int rand = (int) (Math.random() * 3);
+		int rand = (int) (Math.random() * 100);
 		int type;
-		if (rand >= 2) type = Meteor.EXPLODEABLE;
-		else if (rand >= 1) type = Meteor.PWRUP_EXPLODE;
+		if (rand >= 10) type = Meteor.EXPLODEABLE;
+		else if (rand >= 5) type = Meteor.PWRUP_EXPLODE;
 		else type = Meteor.PWRUP_NUKE;
 		meteors.add(new Meteor(x, y, xV, yV, Meteor.LARGE, type));
 	}

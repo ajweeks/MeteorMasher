@@ -7,8 +7,8 @@ import ca.ajweeks.meteormasher.input.Input;
 
 public class StateManager {
 	
-	public static final int MAIN_MENU_STATE = 0;
-	public static final int GAME_STATE = 1;
+	public final static int MAIN_MENU_STATE = 0;
+	public final static int GAME_STATE = 1;
 	
 	public ArrayList<BasicState> states;
 	public BasicState currentState;

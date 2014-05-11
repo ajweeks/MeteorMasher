@@ -15,7 +15,7 @@ public class Meteor {
 	public final static int PWRUP_EXPLODE = 3;
 	
 	//Sizes
-	public static final int LARGE = 256;
+	public static final int LARGE = 234;
 	public static final int MEDIUM = (LARGE / 3) * 2;
 	public static final int SMALL = (LARGE / 3) * 1;
 	
@@ -43,20 +43,10 @@ public class Meteor {
 			}
 			break;
 		case PWRUP_EXPLODE:
-			switch (size) {
-			case LARGE:
-				g.drawImage(Game.meteorExplodeL, (int) x, (int) y, null);
-				break;
-			case MEDIUM:
-				g.drawImage(Game.meteorExplodeM, (int) x, (int) y, null);
-				break;
-			case SMALL:
-				g.drawImage(Game.meteorExplodeS, (int) x, (int) y, null);
-				break;
-			}
+			g.drawImage(Game.meteorExplode, (int) x, (int) y, null);
 			break;
 		case PWRUP_NUKE:
-			g.drawImage(Game.meteorNukeL, (int) x, (int) y, null);
+			g.drawImage(Game.meteorNuke, (int) x, (int) y, null);
 			break;
 		}
 	}
@@ -65,6 +55,7 @@ public class Meteor {
 		x += xd;
 		y += yd;
 		
+		//Border collisions
 		if (x + size > Game.SIZE.width) {
 			xd = -xd;
 			x = Game.SIZE.width - size;
@@ -96,7 +87,7 @@ public class Meteor {
 			break;
 		case PWRUP_NUKE:
 			if (mouseIsInMeteor(input) && input.leftMouseDown) {
-				GameState.meteors = new ArrayList<>();
+				GameState.nuke();
 			}
 			break;
 		case PWRUP_EXPLODE:
@@ -133,12 +124,16 @@ public class Meteor {
 		if (type != EXPLODEABLE) return;
 		switch (size) {
 		case LARGE:
+			x += size / 4;
+			y += size / 4;
 			size = MEDIUM;
 			//Game.sound.play();
 			//GameState.addMeteor(new Meteor(x, y, size, size, MEDIUM, type));
 			//GameState.addMeteor(new Meteor(x, y, size, size, MEDIUM, type));
 			break;
 		case MEDIUM:
+			x += size / 4;
+			y += size / 4;
 			size = SMALL;
 			break;
 		case SMALL:

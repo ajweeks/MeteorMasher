@@ -33,7 +33,6 @@ public class Button {
 		
 		g.setFont(Game.font42);
 		g.setColor(Color.BLACK);
-		g.drawString(this.text, this.x + 5, this.y + 34);
+		g.drawString(this.text, this.x + 10, this.y + 36);
 	}
-	
 }
