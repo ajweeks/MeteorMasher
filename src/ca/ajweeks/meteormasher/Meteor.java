@@ -117,6 +117,7 @@ public class Meteor {
 	}
 	
 	private boolean mouseIsInMeteor(Input input) {
+		//TODO: prevent one click from triggering several meteoroids
 		return input.x >= this.x && input.x <= this.x + this.size && input.y >= this.y && input.y <= this.y + this.size;
 	}
 	

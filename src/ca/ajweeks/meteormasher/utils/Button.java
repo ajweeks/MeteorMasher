@@ -35,4 +35,13 @@ public class Button {
 		g.setColor(Color.BLACK);
 		g.drawString(this.text, this.x + 10, this.y + 36);
 	}
+	
+	public void render(Graphics g, Color colour, Color hoverColour, Color textColour) {
+		g.setColor(hover ? hoverColour : colour);
+		g.fillRect(this.x, this.y, this.width, this.height);
+		
+		g.setFont(Game.font42);
+		g.setColor(textColour);
+		g.drawString(this.text, this.x + 10, this.y + 36);
+	}
 }

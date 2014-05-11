@@ -46,6 +46,7 @@ public class GameState extends BasicState {
 			
 			if (meteors.get(i).toBeDestroyed) {
 				meteors.remove(i);
+				break;
 			}
 			
 			meteors.get(i).checkCollisions(meteors, i); //Check if this meteor is colliding with any other meteor
