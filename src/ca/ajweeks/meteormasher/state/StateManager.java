@@ -9,6 +9,7 @@ public class StateManager {
 	
 	public final static int MAIN_MENU_STATE = 0;
 	public final static int GAME_STATE = 1;
+	public final static int LEVEL_SELECT_STATE = 2;
 	
 	public ArrayList<BasicState> states;
 	public BasicState currentState;
@@ -17,6 +18,7 @@ public class StateManager {
 		states = new ArrayList<>();
 		states.add(new MainMenuState());
 		states.add(new GameState());
+		states.add(new LevelSelectState());
 		
 		currentState = states.get(MAIN_MENU_STATE);
 	}

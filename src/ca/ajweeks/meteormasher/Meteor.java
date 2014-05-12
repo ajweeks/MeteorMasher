@@ -12,7 +12,7 @@ public class Meteor {
 	public final static int EXPLODEABLE = 0;
 	public final static int DRAGGABLE = 1;
 	public final static int PWRUP_NUKE = 2; //Clears screen
-	public final static int PWRUP_EXPLODE = 3;
+	public final static int PWRUP_EXPLODE = 3; //Only requires one click to be destroyed
 	
 	//Sizes
 	public static final int LARGE = 234;
@@ -73,6 +73,7 @@ public class Meteor {
 			y = 0;
 		}
 		
+		//LATER: add friction
 		//xVelocity -= friction;
 		//yVelocity -= friction;
 		
@@ -83,7 +84,7 @@ public class Meteor {
 			}
 			break;
 		case DRAGGABLE:
-			//TODO: add draggable meteors
+			//LATER: add draggable meteors
 			break;
 		case PWRUP_NUKE:
 			if (mouseIsInMeteor(input) && input.leftMouseDown) {
@@ -106,6 +107,7 @@ public class Meteor {
 				Rectangle other = new Rectangle((int) m.x, (int) m.y, m.size, m.size);
 				
 				if (me.intersects(other)) {
+					//FIXME: fix hitboxes / collisions of meteoroids
 					meteors.get(i).xd = -meteors.get(i).xd;
 					meteors.get(i).yd = -meteors.get(i).yd;
 					

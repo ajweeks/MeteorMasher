@@ -27,10 +27,11 @@ public class MainMenuState extends BasicState {
 			}
 			return;
 		}
+		
 		playGame.hover = playGame.hovering(input.x, input.y);
 		if (playGame.hover && (input.leftMouseDown || input.rightMouseDown)) {
 			showCredits = false;
-			Game.stateManager.changeState(StateManager.GAME_STATE);
+			Game.stateManager.changeState(StateManager.LEVEL_SELECT_STATE);
 		}
 		
 		quit.hover = quit.hovering(input.x, input.y);

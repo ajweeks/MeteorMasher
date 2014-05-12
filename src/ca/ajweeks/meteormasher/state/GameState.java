@@ -9,7 +9,13 @@ import ca.ajweeks.meteormasher.input.Input;
 
 public class GameState extends BasicState {
 	
+	public static int ARCADE = 0;
+	public static int TIME_TRIAL = 1;
+	public static int FREE_PLAY = 2;
+	//public static int MULTIPLAYER = 3;
+	
 	public static ArrayList<Meteor> meteors;
+	public static int GAME_MODE = 0;
 	
 	public GameState() {
 		meteors = new ArrayList<>();
@@ -18,6 +24,7 @@ public class GameState extends BasicState {
 	
 	public static void nuke() { //BOOM!
 		for (int i = 0; i < meteors.size(); i++) {
+			//OPTIMIZATION: lag occurs when removing meteoroids with a nuke
 			meteors.get(i).toBeDestroyed = true;
 		}
 	}
@@ -37,7 +44,7 @@ public class GameState extends BasicState {
 	
 	@Override
 	public void update(Input input) {
-		if (input.escape) Game.stateManager.changeState(StateManager.MAIN_MENU_STATE);
+		if (input.escape) Game.stateManager.changeState(StateManager.LEVEL_SELECT_STATE);
 		if (input.rightMouseDown) randoSmallPlacement(input.x - 30, input.y - 30);
 		
 		for (int i = 0; i < meteors.size(); i++) {
