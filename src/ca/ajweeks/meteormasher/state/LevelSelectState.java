@@ -18,23 +18,23 @@ public class LevelSelectState extends BasicState {
 	public void update(Input input) {
 		arcade.hover = arcade.hovering(input.x, input.y);
 		if (arcade.hover && (input.leftMouseDown || input.rightMouseDown)) {
-			GameState.GAME_MODE = GameState.ARCADE;
+			GameState.GAME_MODE = GameState.GameMode.ARCADE;
 			Game.stateManager.changeState(StateManager.GAME_STATE);
 		}
 		
 		timeTrial.hover = timeTrial.hovering(input.x, input.y);
 		if (timeTrial.hover && (input.leftMouseDown || input.rightMouseDown)) {
-			GameState.GAME_MODE = GameState.TIME_TRIAL;
+			GameState.GAME_MODE = GameState.GameMode.TIME_TRIAL;
 			Game.stateManager.changeState(StateManager.GAME_STATE);
 		}
 		
 		freePlay.hover = freePlay.hovering(input.x, input.y);
 		if (freePlay.hover && (input.leftMouseDown || input.rightMouseDown)) {
-			GameState.GAME_MODE = GameState.FREE_PLAY;
+			GameState.GAME_MODE = GameState.GameMode.FREE_PLAY;
 			Game.stateManager.changeState(StateManager.GAME_STATE);
 		}
 		
-		//LATER: aSdd multiplayer gamemode
+		//LATER: add multiplayer gamemode
 		//multiplayer.hover = multiplayer.hovering(input.x, input.y);
 		//if (multiplayer.hover && (input.leftMouseDown || input.rightMouseDown)) {
 		//	GameState.GAME_MODE = GameState.MULTIPLAYER;

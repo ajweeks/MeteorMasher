@@ -8,14 +8,12 @@ import ca.ajweeks.meteormasher.Meteor;
 import ca.ajweeks.meteormasher.input.Input;
 
 public class GameState extends BasicState {
-	
-	public static int ARCADE = 0;
-	public static int TIME_TRIAL = 1;
-	public static int FREE_PLAY = 2;
-	//public static int MULTIPLAYER = 3;
+	enum GameMode {
+		ARCADE, TIME_TRIAL, FREE_PLAY;
+	}
 	
 	public static ArrayList<Meteor> meteors;
-	public static int GAME_MODE = 0;
+	public static GameMode GAME_MODE = GameMode.ARCADE;
 	
 	public GameState() {
 		meteors = new ArrayList<>();
@@ -46,7 +44,17 @@ public class GameState extends BasicState {
 	public void update(Input input) {
 		if (input.escape) Game.stateManager.changeState(StateManager.LEVEL_SELECT_STATE);
 		if (input.rightMouseDown) randoSmallPlacement(input.x - 30, input.y - 30);
-		
+		switch (GAME_MODE) {
+		case ARCADE:
+			
+			break;
+		case FREE_PLAY:
+			
+			break;
+		case TIME_TRIAL:
+			
+			break;
+		}
 		for (int i = 0; i < meteors.size(); i++) {
 			//System.out.println("xV: " + meteors.get(i).xVelocity + " yV: " + meteors.get(i).yVelocity);
 			meteors.get(i).update(input);
@@ -66,6 +74,19 @@ public class GameState extends BasicState {
 		
 		for (Meteor m : meteors) {
 			m.render(g);
+		}
+		
+		//Display Score
+		switch (GAME_MODE) {
+		case ARCADE:
+			
+			break;
+		case FREE_PLAY:
+			
+			break;
+		case TIME_TRIAL:
+			
+			break;
 		}
 	}
 	
